@@ -5,28 +5,32 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+
+import com.example.myapplication.LogIn;
+import com.example.myapplication.R;
 
 public class Splash extends AppCompatActivity {
+
+    /** Duration of wait **/
+    private final int SPLASH_DISPLAY_LENGTH = 2000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        Thread thread = new Thread(){
+        /* New Handler to start the Menu-Activity
+         * and close this Splash-Screen after some seconds.*/
+        new Handler().postDelayed(new Runnable(){
             @Override
             public void run() {
-                try {
-                    sleep(3000);
-                }catch (InterruptedException e){
-                    e.printStackTrace();
-                }finally {
-                    Intent mainPage = new Intent(Splash.this, LogIn.class);
-                    startActivity(mainPage);
-                    finish();
-                }
+                /* Create an Intent that will start the Menu-Activity. */
+                Intent mainIntent = new Intent(Splash.this, LogIn.class);
+                Splash.this.startActivity(mainIntent);
+                Splash.this.finish();
             }
+        }, SPLASH_DISPLAY_LENGTH);
 
-        };
     }
 }

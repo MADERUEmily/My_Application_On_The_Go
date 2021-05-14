@@ -1,3 +1,4 @@
+////https://www.youtube.com/watch?v=18VcnYN5_LM  ///https://www.youtube.com/watch?v=18VcnYN5_LM&t=662s //https://www.youtube.com/watch?v=5T144CbTwjc&list=PLk7v1Z2rk4hjHrGKo9GqOtLs1e2bglHHA
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -42,7 +43,7 @@ public class ItemActivity extends AppCompatActivity {
 //        recyclerView.setLayoutManager(new LinearLayoutManager(ItemActivity.this, LinearLayoutManager.VERTICAL, false));
         recyclerView.setAdapter(itemAdapter);
     }
-
+//add items info to the recyclerview
     public void addDataInItemList() {
         itemList.add(new Item(1, 1, R.drawable.lipstick2, 10, "Top Lipstick - shape 001", ""));
         itemList.add(new Item(2, 1, R.drawable.lipstick3, 14, "Top Lipstick - shape 002", ""));
@@ -72,7 +73,7 @@ public class ItemActivity extends AppCompatActivity {
         itemList.add(new Item(26, 3, R.drawable.glass, 10, "Top Glass", ""));
         itemList.add(new Item(27, 3, R.drawable.shoes, 4, "Top Shoes", ""));
         itemList.add(new Item(28, 3, R.drawable.jeans, 5, "Top Jeans", ""));
-
+//collect from the adapter https://www.youtube.com/watch?v=ZqQuYgwrtAI show list of objects in the the user UI
         Collections.shuffle(itemList);
     }
 

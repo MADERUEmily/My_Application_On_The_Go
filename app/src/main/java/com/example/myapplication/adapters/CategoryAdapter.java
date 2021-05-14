@@ -1,3 +1,4 @@
+//https://www.youtube.com/watch?v=7S7646Cymn0&t=59s
 package com.example.myapplication.adapters;
 
 import android.content.Context;

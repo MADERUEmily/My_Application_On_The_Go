@@ -79,4 +79,11 @@
         android:text="@string/ready_go_text"
         android:textSize="20sp"
         android:textColor="@color/colorWhite" />
+
+    <TextView
+        android:id="@+id/call"
+        android:layout_marginTop="55dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Add to Cart is not available yet, please call us to place order: 0830535714" />
 </LinearLayout>

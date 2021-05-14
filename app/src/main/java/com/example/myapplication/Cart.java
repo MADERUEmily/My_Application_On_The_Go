@@ -1,4 +1,4 @@
-////https://www.youtube.com/watch?v=18VcnYN5_LM
+////https://www.youtube.com/watch?v=18VcnYN5_LM  ///https://www.youtube.com/watch?v=18VcnYN5_LM&t=662s //https://www.youtube.com/watch?v=5T144CbTwjc&list=PLk7v1Z2rk4hjHrGKo9GqOtLs1e2bglHHA
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,7 +24,7 @@ public class Cart extends AppCompatActivity {
         setContentView(R.layout.activity_cart);
 
         addDataInCategoryList();
-
+//add recyclerview to show the items
         recyclerView = findViewById(R.id.recycler_view);
 
         categoryAdapter = new CategoryAdapter(Cart.this,categoryList);

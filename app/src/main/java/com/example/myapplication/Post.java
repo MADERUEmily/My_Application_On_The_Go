@@ -192,7 +192,7 @@ public class Post extends AppCompatActivity implements View.OnClickListener {
                             @Override
                             public void onSuccess(Uri uri) {
                                 String imageUrl = uri.toString();
-                                PostAPI post = new PostAPI(currentUser, date, title, content, imageUrl);
+                                PostAPI post = new PostAPI(currentUser, date, title, content, imageUrl,false);
                                 myRef.child(UUID.randomUUID().toString()).setValue(post);
                             }
                         });

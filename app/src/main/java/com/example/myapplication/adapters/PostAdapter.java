@@ -13,10 +13,19 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.myapplication.Post;
+import com.example.myapplication.CommentActivity;
+import com.example.myapplication.ViewPostActivity;
+import com.example.myapplication.CommentActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.ViewPostActivity;
 import com.example.myapplication.models.PostAPI;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.List;
 
@@ -37,20 +46,50 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.Holder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull Holder holder, final int position) {
+    public void onBindViewHolder(@NonNull final Holder holder, final int position) {
+
         Glide
                 .with(context)
                 .load(postList.get(position).getImageUrl())
                 .centerCrop()
                 .placeholder(R.drawable.icon)
                 .into(holder.imageView);
+
         holder.textView.setText(postList.get(position).getTitle());
+//https://www.youtube.com/watch?v=U0snyuZWlyc add like functionality
+        if (postList.get(position).isLike()) {
+            holder.imgLike.setImageResource(R.drawable.ic_thumb_up_on);
+        } else {
+            holder.imgLike.setImageResource(R.drawable.ic_thumb_up_off);
+        }
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, ViewPostActivity.class);
                 intent.putExtra("post", postList.get(position));
                 context.startActivity(intent);
+            }
+        });
+        //add comment ////https://www.youtube.com/watch?v=pVO1NVpPBF0&t=741s
+        holder.imgComment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, CommentActivity.class);
+                intent.putExtra("post", postList.get(position));
+                context.startActivity(intent);
+            }
+        });
+
+        holder.imgLike.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseDatabase.getInstance()
+                        .getReference("posts")
+                        .child(FirebaseAuth.getInstance().getUid())
+                        .child(postList.get(position).getKey())
+                        .child("like")
+                        .setValue(!postList.get(position).isLike());
             }
         });
     }
@@ -61,7 +100,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.Holder> {
     }
 
     public class Holder extends RecyclerView.ViewHolder {
-        ImageView imageView;
+        ImageView imageView, imgComment, imgLike;
         TextView textView;
         //TextView textView2;
 
@@ -69,6 +108,8 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.Holder> {
             super(itemView);
             imageView = itemView.findViewById(R.id.img);
             textView = itemView.findViewById(R.id.tv_title);
+            imgComment = itemView.findViewById(R.id.img_comment);
+            imgLike = itemView.findViewById(R.id.img_like);
             // textView2 = itemView.findViewById(R.id.tv_content);
         }
     }

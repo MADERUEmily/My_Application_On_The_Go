@@ -1,3 +1,4 @@
+/////https://www.udemy.com/course/android-development-java-android-studio-masterclass/learn/lecture/14549914#questions
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -37,7 +38,7 @@ public class ViewPostActivity extends AppCompatActivity {
                 .centerCrop()
                 .placeholder(R.drawable.icon)
                 .into(backgroundImageView);
-
+//collect from the post adapter https://www.youtube.com/watch?v=Gx9eWIGi7Pw
         currentUserTextView.setText(postAPI.getCreatorName());
         postDateTextView.setText(postAPI.getDate());
         titleTextView.setText(postAPI.getTitle());
