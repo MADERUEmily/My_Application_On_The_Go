@@ -1,3 +1,4 @@
+////https://www.youtube.com/watch?v=18VcnYN5_LM  ///https://www.youtube.com/watch?v=18VcnYN5_LM&t=662s //https://www.youtube.com/watch?v=5T144CbTwjc&list=PLk7v1Z2rk4hjHrGKo9GqOtLs1e2bglHHA
 package com.example.myapplication.adapters;
 
 import android.content.Context;
@@ -36,7 +37,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.Holder>{
     public void onBindViewHolder(@NonNull ItemAdapter.Holder holder, int position) {
         Glide.with(context).load(itemList.get(position).getItemImage()).into(holder.imageView);
         holder.tvName.setText(itemList.get(position).getItemName());
-        holder.tvPrice.setText("US $"+itemList.get(position).getItemPrice());
+        holder.tvPrice.setText("Euro:"+itemList.get(position).getItemPrice());
     }
 
     @Override
