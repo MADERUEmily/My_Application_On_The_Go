@@ -5,7 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.example.myapplication.adapters.CategoryAdapter;
 import com.example.myapplication.models.Category;
@@ -36,6 +39,7 @@ public class Cart extends AppCompatActivity {
         categoryList.add(new Category(1,"Arnott's - Make Up"));
         categoryList.add(new Category(2,"Boots - Medicines"));
         categoryList.add(new Category(3,"Penny's - Women Fashion"));
+
 
     }
 }

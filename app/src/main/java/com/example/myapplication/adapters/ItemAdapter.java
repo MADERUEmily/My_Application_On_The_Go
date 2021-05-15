@@ -2,6 +2,7 @@
 package com.example.myapplication.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.myapplication.ItemActivity;
+import com.example.myapplication.ItemView;
 import com.example.myapplication.R;
 import com.example.myapplication.models.Item;
 
@@ -34,10 +37,18 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.Holder>{
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ItemAdapter.Holder holder, int position) {
+    public void onBindViewHolder(@NonNull ItemAdapter.Holder holder, final int position) {
         Glide.with(context).load(itemList.get(position).getItemImage()).into(holder.imageView);
         holder.tvName.setText(itemList.get(position).getItemName());
         holder.tvPrice.setText("Euro:"+itemList.get(position).getItemPrice());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ItemView.class);
+                intent.putExtra("item",itemList.get(position));
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override

@@ -9,27 +9,33 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".models.Comment"></activity>
-        <activity android:name=".CommentActivity" />
-        <activity android:name=".adapters.CommentAdapter" />
-        <activity android:name=".ItemActivity" />
-        <activity android:name=".adapters.CategoryAdapter" />
-        <activity android:name=".Splash" />
-        <activity android:name=".ViewPostActivity" />
-        <activity android:name=".Cart" />
-        <activity android:name=".Home" />
-        <activity android:name=".models.PostAPI" />
-        <activity android:name=".models.User" />
-        <activity android:name=".Post" />
-        <activity android:name=".Register" />
-        <activity android:name=".LogIn">
+
+            <activity android:name=".Splash" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".models.Comment"></activity>
+        <activity android:name=".CommentActivity" />
+        <activity android:name=".adapters.CommentAdapter" />
+        <activity android:name=".ItemActivity" />
+        <activity android:name=".ItemView" />
+        <activity android:name=".adapters.CategoryAdapter" />
+        <activity android:name=".adapters.ItemAdapter" />
         <activity android:name=".MainActivity" />
+        <activity android:name=".ViewPostActivity" />
+        <activity android:name=".Cart" />
+        <activity android:name=".Home" />
+        <activity android:name=".models.PostAPI" />
+        <activity android:name=".models.User" />
+        <activity android:name=".models.Item" />
+        <activity android:name=".Post" />
+        <activity android:name=".Register" />
+        <activity android:name=".LogIn"/>
+
+
 
         <meta-data
             android:name="preloaded_fonts"

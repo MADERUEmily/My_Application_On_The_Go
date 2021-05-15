@@ -1,6 +1,9 @@
 package com.example.myapplication.models;
 
-public class Item {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Item implements Parcelable {
     int itemId,categoryId,itemImage,itemPrice;
     String itemName,itemDescription;
 
@@ -12,6 +15,27 @@ public class Item {
         this.itemName = itemName;
         this.itemDescription = itemDescription;
     }
+
+    protected Item(Parcel in) {
+        itemId = in.readInt();
+        categoryId = in.readInt();
+        itemImage = in.readInt();
+        itemPrice = in.readInt();
+        itemName = in.readString();
+        itemDescription = in.readString();
+    }
+
+    public static final Creator<Item> CREATOR = new Creator<Item>() {
+        @Override
+        public Item createFromParcel(Parcel in) {
+            return new Item(in);
+        }
+
+        @Override
+        public Item[] newArray(int size) {
+            return new Item[size];
+        }
+    };
 
     public int getItemId() {
         return itemId;
@@ -59,5 +83,20 @@ public class Item {
 
     public void setItemDescription(String itemDescription) {
         this.itemDescription = itemDescription;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(itemId);
+        dest.writeInt(categoryId);
+        dest.writeInt(itemImage);
+        dest.writeInt(itemPrice);
+        dest.writeString(itemName);
+        dest.writeString(itemDescription);
     }
 }

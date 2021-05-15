@@ -6,7 +6,10 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.example.myapplication.adapters.CategoryAdapter;
 import com.example.myapplication.adapters.ItemAdapter;
@@ -45,7 +48,7 @@ public class ItemActivity extends AppCompatActivity {
     }
 //add items info to the recyclerview
     public void addDataInItemList() {
-        itemList.add(new Item(1, 1, R.drawable.lipstick2, 10, "Top Lipstick - shape 001", ""));
+        itemList.add(new Item(1, 1, R.drawable.lipstick2, 10, "Top Lipstick - shape 001", "The lipstick is amazing"));
         itemList.add(new Item(2, 1, R.drawable.lipstick3, 14, "Top Lipstick - shape 002", ""));
         itemList.add(new Item(3, 1, R.drawable.lipstick4, 8, "Top Lipstick - shape 003", ""));
         itemList.add(new Item(4, 1, R.drawable.lipstick5, 10, "Top Lipstick - shape 004", ""));
@@ -86,4 +89,20 @@ public class ItemActivity extends AppCompatActivity {
         }
         return newItemList;
     }
+  //  @Override
+ //   public boolean onCreateOptionsMenu(Menu menu) {
+   //     getMenuInflater().inflate(R.menu.menu_cart, menu);
+    //    return true;
+ //   }
+
+   // @Override
+  // public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+     //   if (item.getItemId() == R.id.action_cart) {
+           // Intent intent = new Intent(ItemActivity.this, ItemView.class);
+        //    startActivity(intent);
+         //   return true;
+        //}
+       // return super.onOptionsItemSelected(item);
+   // }
 }
