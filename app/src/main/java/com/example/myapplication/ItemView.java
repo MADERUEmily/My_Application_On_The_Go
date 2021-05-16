@@ -42,6 +42,7 @@ public class ItemView extends AppCompatActivity {
         Glide.with(ItemView.this).load(item.getItemImage()).into(imageView);
         tvName.setText(item.getItemName());
         tvPrice.setText("Euro" + item.getItemPrice());
+        tvDescription.setText(item.getItemDescription());
 
       //  btnAdd.setOnClickListener(new View.OnClickListener() {
         //    @Override
